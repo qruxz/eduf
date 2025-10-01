@@ -390,11 +390,11 @@ const ChatBot = () => {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [isConnected, setIsConnected] = useState(true);
   const messagesEndRef = useRef(null);
 
-  const API_BASE_URL = 'http://localhost:8000'; // Your deployed backend URL
+  const API_BASE_URL = 'http://eduub.vercel.app'; // Your deployed backend URL
 
   // Initial welcome message
   useEffect(() => {
@@ -522,19 +522,6 @@ const ChatBot = () => {
       document.head.removeChild(styleSheet);
     };
   }, []);
-
-  if (!isOpen) {
-    return (
-      <div className="chatbot-container">
-        <button
-          onClick={() => setIsOpen(true)}
-          className="chatbot-toggle-button"
-        >
-          <MessageCircle size={24} />
-        </button>
-      </div>
-    );
-  }
 
   return (
     <div className="chatbot-container">
